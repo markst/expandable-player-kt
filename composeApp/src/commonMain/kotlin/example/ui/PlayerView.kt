@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -45,7 +46,7 @@ fun PlayerView(modifier: Modifier = Modifier, miniHandler: MinimizableHandler) {
             contentScale = ContentScale.FillHeight,
             modifier = Modifier
                 .wrapContentSize(unbounded = true, align = Alignment.TopCenter)
-                .height(550.dp)
+                .height(miniHandler.settings.maximizedHeight)
                 .fillMaxWidth()
                 .alpha(4.0f * miniHandler.fraction.value)
                 .clipToBounds()
@@ -54,6 +55,7 @@ fun PlayerView(modifier: Modifier = Modifier, miniHandler: MinimizableHandler) {
         Column(
             modifier = Modifier
                 .wrapContentHeight(unbounded = true, align = Alignment.Top)
+                .height(miniHandler.settings.maximizedHeight)
         ) {
             Row(
                 verticalAlignment = Alignment.Top,
@@ -79,7 +81,6 @@ fun PlayerView(modifier: Modifier = Modifier, miniHandler: MinimizableHandler) {
                         color = Color.White,
                         modifier = Modifier.background(Color.Black)
                     )
-                    Spacer(modifier = Modifier.weight(1f))
                 }
                 Spacer(modifier = Modifier.weight(1f))
                 DownChevronButton(onClick = {
@@ -89,10 +90,12 @@ fun PlayerView(modifier: Modifier = Modifier, miniHandler: MinimizableHandler) {
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .fillMaxSize()
             ) {
-                Spacer(modifier = Modifier.height(120.dp))
+                Spacer(modifier = Modifier.weight(1f))
                 PlayButton()
-                Spacer(modifier = Modifier.height(120.dp))
+                Spacer(modifier = Modifier.weight(1f))
                 ProgressBar("0:12:34", "1:12:45", 0.3f)
                 Spacer(modifier = Modifier.weight(1f))
             }

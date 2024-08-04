@@ -31,7 +31,7 @@ fun ExampleDemo() {
     val scope = rememberCoroutineScope()
     val settings = ExpandableSettings(
         minimizedHeight = 70.dp,
-        maximizedHeight = 550.dp,
+        maximizedHeight = 650.dp, // Use screen height minus min?
         bottomPadding = 100.dp,
         expandedBottomPadding = 8.dp,
         cornerRadius = 35.dp
