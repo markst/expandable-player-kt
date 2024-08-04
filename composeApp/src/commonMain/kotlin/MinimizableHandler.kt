@@ -4,6 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -22,7 +23,7 @@ class MinimizableHandler(
     val bottomPadding: Dp
         get() = settings.bottomPadding + (settings.expandedBottomPadding.value * fraction.value).dp
 
-    fun expand(animated: Boolean) {
+    fun expand(animated: Boolean, velocity: Float = 0.0f) {
         toggle(expand = true, animated = animated)
     }
 
@@ -34,12 +35,12 @@ class MinimizableHandler(
         toggle(expand = !expanded, animated = animated)
     }
 
-    private fun toggle(expand: Boolean, animated: Boolean) {
+    private fun toggle(expand: Boolean, animated: Boolean, velocity: Float = 0.0f) {
         scope.launch {
             expanded = expand
             val targetFraction = if (expand) 1.0f else 0.0f
             if (animated) {
-                fraction.animateTo(targetFraction)
+                fraction.animateTo(targetFraction, initialVelocity = velocity)
             } else {
                 fraction.snapTo(targetFraction)
             }

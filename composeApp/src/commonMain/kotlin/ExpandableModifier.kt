@@ -76,11 +76,13 @@ fun Modifier.expandable(
                         lowerBound = 0.0f,
                         upperBound = 1.0f
                     )
+                    // Velocity is in pixels per second:
+                    val newVelocity = velocity / handler.settings.maximizedHeight.value
                     if (velocity > 0.0) {
-                        handler.expand(animated = true)
-                        // handler.fraction.animateTo(targetValue = 1.0f, initialVelocity = velocity)
+                        handler.expand(animated = true, velocity = newVelocity)
                     } else {
                         handler.collapse(animated = true)
+                        // TODO: Add `canReachTargetWithDecay` in order to conditionally animate
                         // handler.fraction.animateDecay(velocity, decay)
                     }
                 }
