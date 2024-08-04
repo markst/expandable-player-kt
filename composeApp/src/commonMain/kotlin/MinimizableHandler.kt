@@ -22,30 +22,22 @@ class MinimizableHandler(
     val bottomPadding: Dp
         get() = settings.bottomPadding + (settings.expandedBottomPadding.value * fraction.value).dp
 
-    fun toggle(animated: Boolean) {
-        if (expanded) {
-            collapse(animated = animated)
-        } else {
-            expand(animated = animated)
-        }
-    }
-
     fun expand(animated: Boolean) {
-        scope.launch {
-            expanded = true
-            val targetFraction = 1f
-            if (animated) {
-                fraction.animateTo(targetFraction)
-            } else {
-                fraction.snapTo(targetFraction)
-            }
-        }
+        toggle(expand = true, animated = animated)
     }
 
     fun collapse(animated: Boolean) {
+        toggle(expand = false, animated = animated)
+    }
+
+    fun toggle(animated: Boolean) {
+        toggle(expand = !expanded, animated = animated)
+    }
+
+    private fun toggle(expand: Boolean, animated: Boolean) {
         scope.launch {
-            expanded = false
-            val targetFraction = 0f
+            expanded = expand
+            val targetFraction = if (expand) 1.0f else 0.0f
             if (animated) {
                 fraction.animateTo(targetFraction)
             } else {

@@ -51,8 +51,9 @@ fun Modifier.expandable(
         }
         .draggable(
             orientation = Orientation.Vertical,
+            reverseDirection = true,
             state = rememberDraggableState { delta ->
-                val dragAmountDp = with(density) { -delta.toDp() }
+                val dragAmountDp = with(density) { delta.toDp() }
                 val totalDragRange = handler.settings.maximizedHeight - handler.settings.minimizedHeight
                 val dragFraction = dragAmountDp / totalDragRange
                 scope.launch {
@@ -62,10 +63,8 @@ fun Modifier.expandable(
             onDragStarted = {
                 // Interrupt any ongoing animation.
                 handler.fraction.stop()
-                handler.toggle(animated = true)
             },
             onDragStopped = { velocity ->
-                println("$velocity")
                 if (velocity.absoluteValue < 100) {
                     if (handler.fraction.value < 0.4f) {
                         handler.collapse(animated = true)
@@ -77,12 +76,12 @@ fun Modifier.expandable(
                         lowerBound = 0.0f,
                         upperBound = 1.0f
                     )
-                    if (velocity < 0.0) {
-                        // handler.expand(animated = true)
-                        handler.fraction.animateTo(targetValue = 1.0f, initialVelocity = -velocity)
+                    if (velocity > 0.0) {
+                        handler.expand(animated = true)
+                        // handler.fraction.animateTo(targetValue = 1.0f, initialVelocity = velocity)
                     } else {
-                        // handler.collapse(animated = true)
-                        handler.fraction.animateDecay(-velocity, decay)
+                        handler.collapse(animated = true)
+                        // handler.fraction.animateDecay(velocity, decay)
                     }
                 }
             }
