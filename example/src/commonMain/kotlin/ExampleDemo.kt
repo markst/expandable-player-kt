@@ -1,7 +1,4 @@
-package example
-
 import androidx.compose.runtime.Composable
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -13,6 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import ui.theme.ScGray
@@ -40,7 +38,6 @@ fun ExampleDemo() {
         cornerRadius = 35.dp
     )
     val handler = remember { MinimizableHandler(scope, settings) }
-
     val hazeState = remember { HazeState() }
 
     Box(
@@ -54,13 +51,8 @@ fun ExampleDemo() {
             modifier = Modifier
                 .wrapContentHeight(unbounded = true, align = Alignment.Top)
                 .fillMaxWidth()
-                .haze(
-                    state = hazeState,
-                    style = HazeDefaults.style(
-                        blurRadius = 18.dp,
-                        backgroundColor = Color.Gray.copy(0.6f)
-                    ),
-                )
+                .haze(state = hazeState)
+
         )
 
         Box(
@@ -73,7 +65,14 @@ fun ExampleDemo() {
             modifier = Modifier
                 .fillMaxWidth()
                 .expandable(handler = handler, scope = scope)
-                .hazeChild(state = hazeState, shape = RoundedCornerShape((35 - (20 * handler.fraction.value)).dp)),
+                .clip(RoundedCornerShape((35 - (20 * handler.fraction.value)).dp))
+                .hazeChild(
+                    state = hazeState,
+                    style = HazeDefaults.style(
+                        blurRadius = 18.dp,
+                        backgroundColor = Color.Gray.copy(0.6f)
+                    )
+                ),
             miniHandler = handler
         )
 

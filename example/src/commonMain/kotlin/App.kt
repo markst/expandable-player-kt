@@ -4,7 +4,6 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.*
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import example.ExampleDemo
 
 @Composable
 @Preview
@@ -13,7 +12,7 @@ fun App() {
         Scaffold(
             contentWindowInsets = WindowInsets.navigationBars
         ) {
-             ExampleDemo()
+            ExampleDemo()
         }
     }
 }
