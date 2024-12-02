@@ -16,7 +16,6 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun PlayButton() {
-// Uncaught Kotlin exception: kotlin.native.internal.IrLinkageError: Function 'clickable' can not be called: No function found for symbol 'androidx.compose.foundation/clickable|clickable@androidx.compose.ui.Modifier(androidx.compose.foundation.interaction.MutableInteractionSource;androidx.compose.foundation.Indication?;kotlin.Boolean;kotlin.String?;androidx.compose.ui.semantics.Role?;kotlin.Function0<kotlin.Unit>){}[0]'
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier

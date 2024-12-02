@@ -11,9 +11,10 @@ plugins {
 
 kotlin {
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "11"
+            }
         }
     }
     
@@ -29,7 +30,6 @@ kotlin {
     }
     
     sourceSets {
-        
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -42,6 +42,7 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.haze)
+            implementation(project(":expandable"))
         }
     }
 }
@@ -82,4 +83,6 @@ android {
         debugImplementation(compose.uiTooling)
     }
 }
-
+dependencies {
+    implementation(project(":expandable"))
+}
