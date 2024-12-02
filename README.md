@@ -14,9 +14,9 @@ A custom Jetpack Compose modifier that adds an expandable media player to your s
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/2507ec28-9baa-436e-bdbc-1a79297a1553" width="200"/></td>
-    <td><img src="https://github.com/user-attachments/assets/46e89b32-d9de-42b9-9d63-befd2a8e5c1d" width="200"/></td>
-    <td><img src="https://github.com/user-attachments/assets/46e89b32-d9de-42b9-9d63-befd2a8e5c1d" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/2507ec28-9baa-436e-bdbc-1a79297a1553" width="220"/></td>
+    <td><img src="https://github.com/user-attachments/assets/46e89b32-d9de-42b9-9d63-befd2a8e5c1d" width="220"/></td>
+    <td><img src="https://github.com/user-attachments/assets/a57af486-7ea9-46c8-849c-7b9f6cccf6eb" width="220"/></td>
   </tr>
 </table>
 
