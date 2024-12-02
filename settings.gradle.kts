@@ -29,3 +29,4 @@ dependencyResolutionManagement {
 }
 
 include(":example")
+include(":expandable")

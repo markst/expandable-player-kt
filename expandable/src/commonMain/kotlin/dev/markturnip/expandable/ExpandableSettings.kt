@@ -1,3 +1,5 @@
+package dev.markturnip.expandable
+
 import androidx.compose.ui.unit.Dp
 
 data class ExpandableSettings(

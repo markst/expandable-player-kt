@@ -1,3 +1,5 @@
+package dev.markturnip.expandable
+
 import androidx.compose.animation.splineBasedDecay
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.Orientation
