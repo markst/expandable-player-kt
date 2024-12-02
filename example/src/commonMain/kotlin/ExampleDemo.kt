@@ -65,7 +65,6 @@ fun ExampleDemo() {
             modifier = Modifier
                 .fillMaxWidth()
                 .expandable(handler = handler, scope = scope)
-                .clip(RoundedCornerShape((35 - (20 * handler.fraction.value)).dp))
                 .hazeChild(
                     state = hazeState,
                     style = HazeDefaults.style(
