@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.vanniktech.publish)
 }
 
 kotlin {
@@ -51,4 +52,39 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+}
+
+mavenPublishing {
+    publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.CENTRAL_PORTAL)
+    signAllPublications()
+
+    coordinates(
+        groupId = "dev.markturnip",
+        artifactId = "expandable-player",
+        version = project.properties["version"].toString()
+    )
+
+    pom {
+        name = "Expandable Player"
+        description = "A Kotlin Multiplatform Compose modifier that adds an expandable media player to your screen."
+        url = "https://github.com/markst/expandable-player-kt"
+        licenses {
+            license {
+                name = "MIT License"
+                url = "https://opensource.org/licenses/MIT"
+            }
+        }
+        developers {
+            developer {
+                id = "markst"
+                name = "Mark Turnip"
+                url = "https://github.com/markst"
+            }
+        }
+        scm {
+            url = "https://github.com/markst/expandable-player-kt"
+            connection = "scm:git:git://github.com/markst/expandable-player-kt.git"
+            developerConnection = "scm:git:ssh://git@github.com/markst/expandable-player-kt.git"
+        }
+    }
 }
