@@ -1,4 +1,4 @@
-rootProject.name = "ExpandablePlayer"
+rootProject.name = "expandable-player"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
