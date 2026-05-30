@@ -30,5 +30,9 @@ dependencyResolutionManagement {
     }
 }
 
-include(":example")
 include(":expandable")
+
+// Only include the example app when building standalone (not as a composite build)
+if (gradle.parent == null) {
+    include(":example")
+}
