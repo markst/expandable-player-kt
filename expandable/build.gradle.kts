@@ -34,7 +34,7 @@ kotlin {
 
 android {
     namespace = "dev.markturnip.expandable"
-    compileSdk = 35
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 24
