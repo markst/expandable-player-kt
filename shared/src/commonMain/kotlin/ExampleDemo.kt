@@ -18,8 +18,8 @@ import dev.chrisbanes.haze.HazeDefaults
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.haze
 import dev.chrisbanes.haze.hazeChild
-import dev.markturnip.example.generated.resources.Res
-import dev.markturnip.example.generated.resources.screengrab_1
+import dev.markturnip.shared.generated.resources.Res
+import dev.markturnip.shared.generated.resources.screengrab_1
 import org.jetbrains.compose.resources.painterResource
 
 import dev.markturnip.expandable.ExpandableSettings
