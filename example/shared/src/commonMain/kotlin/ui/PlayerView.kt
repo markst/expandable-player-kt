@@ -25,7 +25,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import dev.markturnip.expandable.MinimizableHandler
-import dev.markturnip.example.generated.resources.*
+import dev.markturnip.shared.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
 
 @Composable

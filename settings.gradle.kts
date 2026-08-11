@@ -10,6 +10,7 @@ pluginManagement {
                 includeGroupAndSubgroups("com.google")
             }
         }
+        maven("https://packages.jetbrains.team/maven/p/kt/dev")
         mavenCentral()
         gradlePluginPortal()
     }
@@ -24,9 +25,15 @@ dependencyResolutionManagement {
                 includeGroupAndSubgroups("com.google")
             }
         }
+        maven("https://packages.jetbrains.team/maven/p/kt/dev")
         mavenCentral()
     }
 }
 
-include(":example")
 include(":expandable")
+
+// Only include the example app when building standalone (not as a composite build)
+if (gradle.parent == null) {
+    include(":example:shared")
+    include(":example:androidApp")
+}
