@@ -48,7 +48,7 @@ kotlin {
 }
 
 dependencies {
-    implementation(project(":shared"))
+    implementation(project(":example:shared"))
     implementation(libs.androidx.activity.compose)
     implementation(compose.preview)
     debugImplementation(compose.uiTooling)

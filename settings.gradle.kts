@@ -34,6 +34,6 @@ include(":expandable")
 
 // Only include the example app when building standalone (not as a composite build)
 if (gradle.parent == null) {
-    include(":shared")
-    include(":androidApp")
+    include(":example:shared")
+    include(":example:androidApp")
 }
